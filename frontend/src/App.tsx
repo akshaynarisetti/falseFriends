@@ -46,7 +46,7 @@ function Home() {
     } else {
       // Fetch the callbackId and reclaimUrl on initial render
       axios
-        .get("https://falsefriends.akshaynarisett1.repl.co/uid")
+        .get("https://falsefriends.replit.app/uid")
         .then((response) => {
           const { callbackId, reclaimUrl } = response.data;
           setCallbackId(callbackId);
@@ -62,7 +62,7 @@ function Home() {
       const interval = setInterval(() => {
         axios
           .get(
-            `https://falsefriends.akshaynarisett1.repl.co/verified?callbackId=${callbackId}`
+            `https://falsefriends.replit.app/verified?callbackId=${callbackId}`
           )
           .then((response) => {
             const { registered, userName } = response.data;
