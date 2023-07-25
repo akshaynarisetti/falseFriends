@@ -179,7 +179,7 @@ function Chat() {
       userId: user.userName,
       content: formValue,
       createdAt: serverTimestamp(),
-      imageUrl: user.imageUrl,
+      imageUrl: user?.imageUrl || "",
     } as Message);
 
     setFormValue("");
