@@ -13,6 +13,7 @@ export type Message = {
   content: string;
   createdAt: unknown;
   userId: string;
+  imageUrl: string;
 };
 
 export type User = {
@@ -178,6 +179,7 @@ function Chat() {
       userId: user.userName,
       content: formValue,
       createdAt: serverTimestamp(),
+      imageUrl: user.imageUrl,
     } as Message);
 
     setFormValue("");
@@ -212,20 +214,19 @@ function Chat() {
 
 type Props = Message;
 
-function ChatMessage({ content, userId }: Props) {
+function ChatMessage({ content, userId, imageUrl }: Props) {
   const userName = localStorage.getItem("userName");
 
   const messageClass = userName === userId ? "sent" : "received";
 
+  const vv = imageUrl
+    ? imageUrl
+    : "https://png.pngtree.com/png-clipart/20201224/ourmid/pngtree-funny-cartoon-character-avatar-original-png-image_2618453.jpg";
 
   return (
     <>
       <div className={`message ${messageClass}`}>
-        <img
-          src={
-            "https://raw.githubusercontent.com/Ashwinvalento/cartoon-avatar/master/lib/images/male/86.png"
-          }
-        />
+        <img src={vv} />
         <p>{content}</p>
       </div>
     </>
